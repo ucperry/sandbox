@@ -122,7 +122,8 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: var(--spacing-3xl) var(--spacing-lg);
+            /* REDUCED: Main hero padding */
+            padding: var(--spacing-lg) var(--spacing-lg);
             background: var(--charcoal);
             color: var(--white);
             margin-top: 70px;
@@ -153,14 +154,16 @@
         /* HERO - Two-Column Bad/Good Project Layout with L-Shaped Connectors */
         .hero-comparison-section {
             position: relative;
-            margin-bottom: var(--spacing-3xl);
+            /* REDUCED: Spacing between comparison boxes and CTA */
+            margin-bottom: var(--spacing-lg);
         }
 
         .hero-comparison {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: var(--spacing-2xl);
-            margin-bottom: var(--spacing-2xl);
+            /* REDUCED: Spacing below comparison boxes */
+            margin-bottom: var(--spacing-lg);
             animation: fadeInUp 0.8s ease-out;
         }
 
@@ -270,7 +273,8 @@
         /* HERO - Company Introduction Container */
         .hero-intro {
             text-align: center;
-            margin-bottom: var(--spacing-3xl);
+            /* REDUCED: Spacing between company box and comparison boxes */
+            margin-bottom: var(--spacing-lg);
             animation: fadeInUp 0.8s ease-out 0.3s both;
         }
 
@@ -329,45 +333,56 @@
         .cta-option {
             background: rgba(255, 255, 255, 0.05);
             border-radius: var(--radius-lg);
-            padding: var(--spacing-xl);
-            text-align: center;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
+            padding: var(--spacing-lg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
         }
 
         .cta-option:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--primary-gold);
             transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(255, 224, 102, 0.2);
+            box-shadow: 0 15px 40px rgba(255, 224, 102, 0.3);
+            border-color: var(--primary-gold);
         }
 
-        .cta-option .cta-icon {
+        .cta-icon {
             font-size: 2.5rem;
             color: var(--primary-gold);
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            display: block;
         }
 
         .cta-option h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1.25rem;
             color: var(--white);
+            font-weight: 700;
             margin-bottom: var(--spacing-sm);
         }
 
         .cta-option p {
             color: rgba(255, 255, 255, 0.8);
-            font-size: 1rem;
+            font-size: 0.95rem;
             line-height: 1.5;
         }
 
         /* ========================================
-           HERO - Animations
+           ANIMATIONS
         ======================================== */
         @keyframes fadeInUp {
             from {
@@ -380,46 +395,48 @@
             }
         }
 
-        /* Pulse animation for connectors */
-        .connector-line {
-            animation: connectorPulse 3s ease-in-out infinite;
-        }
-
-        .arrowhead {
-            animation: arrowheadPulse 3s ease-in-out infinite;
-        }
-
-        @keyframes connectorPulse {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
-        }
-
-        @keyframes arrowheadPulse {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
-        }
-
         /* ========================================
-           HERO - Responsive Design
+           RESPONSIVE DESIGN
         ======================================== */
-        @media (max-width: 768px) {
-            .hero {
-                padding: var(--spacing-xl) var(--spacing-md);
-            }
-
+        @media (max-width: 1024px) {
             .hero-comparison {
                 grid-template-columns: 1fr;
-                gap: var(--spacing-xl);
+                gap: var(--spacing-lg);
             }
 
-            /* Hide connectors on mobile */
-            .connector-left,
-            .connector-right {
-                display: none;
+            .hero-cta {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            /* Adjust reduced spacing for tablets */
+            .hero {
+                padding: var(--spacing-md) var(--spacing-lg);
+            }
+
+            .hero-intro {
+                margin-bottom: var(--spacing-md);
             }
 
             .hero-comparison-section {
-                margin-bottom: var(--spacing-2xl);
+                margin-bottom: var(--spacing-md);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                /* REDUCED: Even tighter spacing on mobile */
+                padding: var(--spacing-sm) var(--spacing-md);
+            }
+
+            .hero-intro {
+                /* REDUCED: Tighter spacing on mobile */
+                margin-bottom: var(--spacing-sm);
+            }
+
+            .hero-comparison-section {
+                /* REDUCED: Tighter spacing on mobile */
+                margin-bottom: var(--spacing-sm);
             }
 
             .hero-box {
@@ -466,6 +483,21 @@
         }
 
         @media (max-width: 480px) {
+            .hero {
+                /* REDUCED: Minimal spacing on small mobile */
+                padding: var(--spacing-xs) var(--spacing-sm);
+            }
+
+            .hero-intro {
+                /* REDUCED: Minimal spacing on small mobile */
+                margin-bottom: var(--spacing-xs);
+            }
+
+            .hero-comparison-section {
+                /* REDUCED: Minimal spacing on small mobile */
+                margin-bottom: var(--spacing-xs);
+            }
+
             .hero-box {
                 padding: var(--spacing-md) var(--spacing-lg);
             }
@@ -635,47 +667,45 @@
             
             const section = document.getElementById(sectionId);
             if (section) {
-                const offsetTop = section.getBoundingClientRect().top + window.pageYOffset - 150;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
+                section.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             }
             return false;
         }
 
-        /* ========================================
-           HERO - Interactive Effects
-        ======================================== */
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // ========================================
+        // HERO SECTION INTERACTIONS
+        // ========================================
         
-        // Enhanced CTA interactions
-        function initializeHeroInteractions() {
-            const ctaOptions = document.querySelectorAll('.cta-option');
-            
-            ctaOptions.forEach(option => {
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add enhanced hover interactions
+            document.querySelectorAll('.cta-option').forEach(option => {
                 option.addEventListener('mouseenter', function() {
                     this.style.transform = 'translateY(-8px) scale(1.02)';
+                    this.style.boxShadow = '0 20px 50px rgba(255, 224, 102, 0.4)';
                 });
                 
                 option.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
-                
-                option.addEventListener('mousedown', function() {
-                    this.style.transform = 'translateY(-3px) scale(0.98)';
-                });
-                
-                option.addEventListener('mouseup', function() {
-                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                    this.style.transform = 'translateY(-5px) scale(1)';
+                    this.style.boxShadow = '0 15px 40px rgba(255, 224, 102, 0.3)';
                 });
             });
 
-            // Add hover effects to bad/good project boxes
-            const heroBoxes = document.querySelectorAll('.hero-box');
-            heroBoxes.forEach(box => {
+            // Add hover interactions for project boxes
+            document.querySelectorAll('.hero-box').forEach(box => {
                 box.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-3px)';
-                    this.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3)';
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.3)';
                 });
                 
                 box.addEventListener('mouseleave', function() {
@@ -683,20 +713,9 @@
                     this.style.boxShadow = 'none';
                 });
             });
-        }
 
-        /* ========================================
-           HERO - Initialization
-        ======================================== */
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeHeroInteractions();
-            
-            console.log('🎯 Bad/Good project hero with L-shaped connectors initialized successfully');
+            console.log('🏠 Hero section loaded - updated with tighter spacing');
         });
-
-        // Make functions globally available
-        window.scrollToSection = scrollToSection;
     </script>
 </body>
 </html>

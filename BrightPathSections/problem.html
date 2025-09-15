@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Statement - BrightPath CH(Ai)SE™</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ========================================
+           SHARED STYLES - Used in: Navigation, Hero, All Sections
+        ======================================== */
+        :root {
+            --primary-gold: #FFE066;
+            --accent-blue: #4A90E2;
+            --accent-green: #6B8E23;
+            --accent-red: #A23E48;
+            --neutral-dark: #2C2C2C;
+            --charcoal: #1a1a1a;
+            --neutral-light: #F8F8F8;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-medium: #666666;
+            --text-light: #999999;
+            --gradient-primary: linear-gradient(135deg, var(--primary-gold), var(--accent-blue));
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            --spacing-3xl: 6rem;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-full: 9999px;
+            --font-inter: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-inter);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ========================================
+           NAVIGATION - Simplified for Demo
+        ======================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            border-bottom: 2px solid rgba(44, 44, 44, 0.1);
+            z-index: 1000;
+            height: 70px;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            height: 70px;
+            padding-top: 25px;
+        }
+
+        .logo {
+            cursor: pointer;
+            display: flex;
+            align-items: baseline;
+            gap: 0.25ch;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-chase {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        .nav-demo {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+
+        /* ========================================
+           PROBLEM STATEMENT SECTION - Dark Background with Grid Pattern
+        ======================================== */
+        .problem {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--spacing-3xl) var(--spacing-lg);
+            background: var(--charcoal);
+            color: var(--white);
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* PROBLEM - Grid Background Pattern */
+        .problem::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.6;
+        }
+
+        .problem-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* PROBLEM - Header Section */
+        .problem-intro {
+            text-align: center;
+            margin-bottom: var(--spacing-3xl);
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .problem-header-container {
+            background: rgba(255, 255, 255, 0.10);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            border: 2px solid rgba(220, 53, 69, 0.3);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            display: inline-block;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .problem-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            background: linear-gradient(135deg, #DC3545, #A23E48);
+            color: var(--white);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--spacing-md);
+            box-shadow: var(--shadow-md);
+        }
+
+        .problem-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #DC3545, #FF6B6B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .problem-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            font-style: italic;
+            font-family: var(--font-mono);
+        }
+
+        /* PROBLEM - Content Grid */
+        .problem-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-3xl);
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .problem-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #DC3545, #FF6B6B);
+        }
+
+        .problem-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(220, 53, 69, 0.3);
+        }
+
+        .problem-box h2 {
+            color: var(--primary-gold);
+            font-size: 1.6rem;
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .problem-box h2 i {
+            color: #DC3545;
+            font-size: 1.4rem;
+        }
+
+        .problem-box p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.6;
+        }
+
+        .problem-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .problem-box li {
+            padding: var(--spacing-xs) 0;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: var(--spacing-lg);
+        }
+
+        .problem-box li::before {
+            content: '⚠️';
+            position: absolute;
+            left: 0;
+            top: var(--spacing-xs);
+        }
+
+        /* PROBLEM - Economics Comparison */
+        .economics-comparison {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            margin-bottom: var(--spacing-3xl);
+            animation: fadeInUp 0.8s ease-out 0.9s both;
+        }
+
+        .economics-comparison h3 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-gold);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .economics-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .economics-side {
+            text-align: center;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+        }
+
+        .economics-side.traditional {
+            background: rgba(220, 53, 69, 0.1);
+            border: 2px solid rgba(220, 53, 69, 0.3);
+        }
+
+        .economics-side.chase {
+            background: rgba(75, 144, 226, 0.1);
+            border: 2px solid var(--accent-blue);
+        }
+
+        .economics-side h4 {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .traditional h4 {
+            color: #FF6B6B;
+        }
+
+        .chase h4 {
+            color: var(--primary-gold);
+        }
+
+        .economics-formula {
+            font-family: var(--font-mono);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            margin: var(--spacing-md) 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .economics-effects {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .economics-effects li {
+            padding: var(--spacing-xs) 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: var(--spacing-lg);
+        }
+
+        .traditional .economics-effects li::before {
+            content: '❌';
+            position: absolute;
+            left: 0;
+            top: var(--spacing-xs);
+        }
+
+        .chase .economics-effects li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            top: var(--spacing-xs);
+        }
+
+        .vs-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vs-circle {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--charcoal);
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* PROBLEM - Cost of Inaction */
+        .cost-inaction {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.2), rgba(168, 62, 72, 0.2));
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            text-align: center;
+            border: 2px solid rgba(220, 53, 69, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease-out 1.2s both;
+        }
+
+        .cost-inaction h3 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-md);
+            color: var(--primary-gold);
+        }
+
+        .cost-inaction h3 i {
+            font-size: 1.75rem;
+            color: #FF6B6B;
+        }
+
+        .cost-inaction p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: var(--spacing-lg);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .inaction-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .inaction-stat {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-gold);
+            display: block;
+            font-family: var(--font-mono);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* ========================================
+           ANIMATIONS
+        ======================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+        @media (max-width: 1024px) {
+            .problem-content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .economics-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .vs-divider {
+                transform: rotate(90deg);
+            }
+
+            .inaction-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .problem {
+                padding: var(--spacing-2xl) var(--spacing-md);
+            }
+
+            .problem-box {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+
+            .problem-box h2 {
+                font-size: 1.4rem;
+            }
+
+            .problem-header-container {
+                padding: var(--spacing-xl);
+            }
+
+            .problem-title {
+                font-size: 2.5rem;
+            }
+
+            .problem-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .inaction-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-content {
+                padding: 0 var(--spacing-sm);
+                align-items: center;
+            }
+
+            .logo {
+                padding-top: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .problem-box {
+                padding: var(--spacing-md) var(--spacing-sm);
+            }
+
+            .problem-header-container {
+                padding: var(--spacing-lg);
+            }
+
+            .problem-title {
+                font-size: 2rem;
+            }
+
+            .problem-subtitle {
+                font-size: 1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        /* ========================================
+           DEMO SECTION - For Testing
+        ======================================== */
+        .demo-section {
+            padding: var(--spacing-3xl);
+            background: var(--white);
+            text-align: center;
+        }
+
+        .demo-section h2 {
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-lg);
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION - Simplified for Demo -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <span class="logo-text">BrightPath</span>
+                <span class="logo-chase">CH(Ai)SE™</span>
+            </div>
+            <div class="nav-demo">Navigation Menu Here</div>
+        </div>
+    </nav>
+
+    <!-- PROBLEM STATEMENT SECTION - Dark Background Layout with Grid Pattern -->
+    <section class="problem" id="problem">
+        <div class="problem-container">
+            <!-- PROBLEM - Header Introduction -->
+            <div class="problem-intro">
+                <div class="problem-header-container">
+                    <div class="problem-badge">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>The Problem</span>
+                    </div>
+                    <div class="problem-title">The Software Development Crisis</div>
+                    <div class="problem-subtitle">Why traditional approaches fail SMBs</div>
+                </div>
+            </div>
+
+            <!-- PROBLEM - Two Column Content Layout -->
+            <div class="problem-content">
+                <div class="problem-box">
+                    <h2>
+                        <i class="fas fa-comments-dollar"></i>
+                        Requirements Communication Gap
+                    </h2>
+                    <p>
+                        Small businesses can't effectively articulate technical requirements without seeing functional systems. They understand their workflows but struggle to translate operational needs into technical specifications.
+                    </p>
+                    <ul>
+                        <li>Vague initial requirements leading to scope confusion</li>
+                        <li>Expensive discovery phases that still miss key needs</li>
+                        <li>Built systems that don't match actual workflows</li>
+                        <li>Multiple revision cycles inflating costs</li>
+                    </ul>
+                </div>
+
+                <div class="problem-box">
+                    <h2>
+                        <i class="fas fa-expand-arrows-alt"></i>
+                        Scope Change Anxiety
+                    </h2>
+                    <p>
+                        Traditional methodologies treat scope changes as budget disasters rather than natural evolution. This creates fear around enhancement requests and locks businesses into suboptimal solutions.
+                    </p>
+                    <ul>
+                        <li>Scope changes become expensive change orders</li>
+                        <li>Fear of additional costs prevents necessary improvements</li>
+                        <li>Rigid specifications that don't adapt to real usage</li>
+                        <li>Delivered features that solve planned problems, not actual ones</li>
+                    </ul>
+                </div>
+
+                <div class="problem-box">
+                    <h2>
+                        <i class="fas fa-money-bill-wave"></i>
+                        Upfront Investment Paralysis
+                    </h2>
+                    <p>
+                        Large initial investments required before value demonstration create decision paralysis. Businesses delay digital transformation because they can't justify speculative spending.
+                    </p>
+                    <ul>
+                        <li>$15,000-$50,000+ upfront costs before seeing results</li>
+                        <li>Long development timelines with no interim value</li>
+                        <li>All-or-nothing investment decisions</li>
+                        <li>Budget risk that prevents project approval</li>
+                    </ul>
+                </div>
+
+                <div class="problem-box">
+                    <h2>
+                        <i class="fas fa-chart-line-down"></i>
+                        The Real Business Challenge
+                    </h2>
+                    <p>
+                        SMBs face an impossible choice: invest heavily in software development based on speculation, or remain stuck with inefficient manual processes. The fundamental issue isn't technical—it's economic and communicative.
+                    </p>
+                    <ul>
+                        <li>Developers build what's specified rather than what's needed</li>
+                        <li>Expensive solutions that miss the actual business mark</li>
+                        <li>Project paralysis preventing digital transformation</li>
+                        <li>Cycle of missed opportunities and competitive disadvantage</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PROBLEM - Economics Comparison -->
+            <div class="economics-comparison">
+                <h3>Traditional vs CH(Ai)SE Project Economics</h3>
+                <div class="economics-grid">
+                    <div class="economics-side traditional">
+                        <h4>Traditional Approach</h4>
+                        <div class="economics-formula">
+                            High Fixed Cost + Scope Risk = Customer Paralysis
+                        </div>
+                        <ul class="economics-effects">
+                            <li>Large upfront investment before value proof</li>
+                            <li>Scope changes create budget overruns</li>
+                            <li>Customer commitment based on speculation</li>
+                            <li>Projects deliver planned features, not needed solutions</li>
+                        </ul>
+                    </div>
+
+                    <div class="vs-divider">
+                        <div class="vs-circle">VS</div>
+                    </div>
+
+                    <div class="economics-side chase">
+                        <h4>CH(Ai)SE Framework</h4>
+                        <div class="economics-formula">
+                            Low Initial Cost + Incremental Investment = Customer Confidence
+                        </div>
+                        <ul class="economics-effects">
+                            <li>Small MVP investment with immediate value</li>
+                            <li>Enhancement decisions based on proven ROI</li>
+                            <li>Customer investment increases as value proves</li>
+                            <li>Projects deliver needed solutions, not planned features</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROBLEM - Cost of Inaction -->
+            <div class="cost-inaction">
+                <h3>
+                    <i class="fas fa-hourglass-end"></i>
+                    The Cost of Staying Status Quo
+                </h3>
+                <p>
+                    While businesses hesitate to invest in digital transformation due to traditional development risks, they continue bleeding money and opportunities through manual processes, inefficient workflows, and competitive disadvantage.
+                </p>
+                <p>
+                    The longer businesses wait for a "better" approach to software development, the more they lose to competitors who have already automated their operations and optimized their customer experiences.
+                </p>
+
+                <div class="inaction-stats">
+                    <div class="inaction-stat">
+                        <span class="stat-number">40%</span>
+                        <span class="stat-label">Time Lost to Manual Tasks</span>
+                    </div>
+                    <div class="inaction-stat">
+                        <span class="stat-number">60%</span>
+                        <span class="stat-label">Customer Experience Gaps</span>
+                    </div>
+                    <div class="inaction-stat">
+                        <span class="stat-number">$50K+</span>
+                        <span class="stat-label">Annual Efficiency Losses</span>
+                    </div>
+                    <div class="inaction-stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Competitive Disadvantage</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Next Section -->
+    <section class="demo-section" id="solution">
+        <h2>Next: Solution Introduction Section</h2>
+        <p>This is where we'll introduce the CH(Ai)SE framework as the solution to these traditional development problems.</p>
+    </section>
+
+    <script>
+        /* ========================================
+           SHARED FUNCTIONS - Used in: Navigation, Hero, All Sections
+        ======================================== */
+        
+        // Scroll to section function
+        function scrollToSection(sectionId, event) {
+            if (event) {
+                event.preventDefault();
+            }
+            
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+            return false;
+        }
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // ========================================
+        // PROBLEM STATEMENT SECTION INTERACTIONS
+        // ========================================
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add scroll-triggered animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all problem boxes for animation
+            document.querySelectorAll('.problem-box').forEach(box => {
+                box.style.animationPlayState = 'paused';
+                observer.observe(box);
+            });
+
+            // Analytics and performance monitoring
+            if (window.performance && window.performance.mark) {
+                window.performance.mark('problem-section-loaded');
+                
+                setTimeout(() => {
+                    window.performance.mark('problem-section-interactive');
+                    window.performance.measure('problem-section-load-time', 'problem-section-loaded', 'problem-section-interactive');
+                }, 100);
+            }
+
+            console.log('🚨 Problem Statement section loaded - identifying traditional development challenges');
+        });
+
+        // Export functions for potential integration
+        window.scrollToProblem = function() {
+            document.getElementById('problem').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Get Started - BrightPath CH(Ai)SE™</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ========================================
+           SHARED STYLES - Used in: Navigation, Hero, All Sections
+        ======================================== */
+        :root {
+            --primary-gold: #FFE066;
+            --accent-blue: #4A90E2;
+            --accent-green: #6B8E23;
+            --accent-red: #A23E48;
+            --neutral-dark: #2C2C2C;
+            --charcoal: #1a1a1a;
+            --neutral-light: #F8F8F8;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-medium: #666666;
+            --text-light: #999999;
+            --gradient-primary: linear-gradient(135deg, var(--primary-gold), var(--accent-blue));
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            --spacing-3xl: 6rem;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-full: 9999px;
+            --font-inter: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-inter);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ========================================
+           NAVIGATION - Simplified for Demo
+        ======================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            border-bottom: 2px solid rgba(44, 44, 44, 0.1);
+            z-index: 1000;
+            height: 70px;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            height: 70px;
+            padding-top: 25px;
+        }
+
+        .logo {
+            cursor: pointer;
+            display: flex;
+            align-items: baseline;
+            gap: 0.25ch;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-chase {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        .nav-demo {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+
+        /* ========================================
+           CONTACT SECTION - Dark Background with Grid Pattern
+        ======================================== */
+        .contact {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--spacing-3xl) var(--spacing-lg);
+            background: var(--charcoal);
+            color: var(--white);
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* CONTACT - Grid Background Pattern */
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.6;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* CONTACT - Header Section */
+        .contact-intro {
+            text-align: center;
+            margin-bottom: var(--spacing-3xl);
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .contact-header-container {
+            background: rgba(255, 255, 255, 0.10);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            border: 2px solid rgba(255, 224, 102, 0.3);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            display: inline-block;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .contact-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            background: var(--gradient-primary);
+            color: var(--charcoal);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--spacing-md);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contact-subtitle {
+            font-size: 1.3rem;
+            color: var(--primary-gold);
+            font-weight: 500;
+            font-style: italic;
+            font-family: var(--font-mono);
+        }
+
+        /* CONTACT - CTA Options */
+        .cta-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-3xl);
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .cta-option {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+        }
+
+        .cta-option:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(255, 224, 102, 0.3);
+            border-color: var(--primary-gold);
+        }
+
+        .cta-icon {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta-option h3 {
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta-option p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            width: 100%;
+            background: var(--gradient-primary);
+            color: var(--charcoal);
+            border: none;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, #FFED4A, #5BA1F2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 224, 102, 0.4);
+        }
+
+        /* CONTACT - Contact Form */
+        .contact-form-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            margin-bottom: var(--spacing-3xl);
+            animation: fadeInUp 0.8s ease-out 0.9s both;
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-gold);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--primary-gold);
+            margin-bottom: var(--spacing-sm);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: var(--spacing-md);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 0 2px rgba(255, 224, 102, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+
+        .submit-button {
+            background: var(--gradient-primary);
+            color: var(--charcoal);
+            border: none;
+            padding: var(--spacing-lg) var(--spacing-2xl);
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .submit-button:hover {
+            background: linear-gradient(135deg, #FFED4A, #5BA1F2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 224, 102, 0.4);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .submit-button.loading {
+            position: relative;
+        }
+
+        .submit-button.loading::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top-color: var(--charcoal);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: var(--spacing-sm);
+        }
+
+        /* CONTACT - Form Message */
+        .form-message {
+            margin-top: var(--spacing-lg);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .form-message.success {
+            background: rgba(107, 142, 35, 0.2);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        .form-message.error {
+            background: rgba(220, 53, 69, 0.2);
+            border: 1px solid #FF6B6B;
+            color: #FF6B6B;
+        }
+
+        /* CONTACT - Additional Info */
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out 1.2s both;
+        }
+
+        .contact-info h3 {
+            font-size: 1.75rem;
+            color: var(--primary-gold);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .contact-info p {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .response-time {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            background: rgba(107, 142, 35, 0.2);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* ========================================
+           ANIMATIONS
+        ======================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .cta-icon {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+        @media (max-width: 1024px) {
+            .cta-options {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact {
+                padding: var(--spacing-2xl) var(--spacing-md);
+            }
+
+            .contact-header-container {
+                padding: var(--spacing-xl);
+            }
+
+            .contact-title {
+                font-size: 2.5rem;
+            }
+
+            .contact-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .nav-content {
+                padding: 0 var(--spacing-sm);
+                align-items: center;
+            }
+
+            .logo {
+                padding-top: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-header-container {
+                padding: var(--spacing-lg);
+            }
+
+            .contact-title {
+                font-size: 2rem;
+            }
+
+            .contact-subtitle {
+                font-size: 1rem;
+            }
+
+            .cta-icon {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* ========================================
+           DEMO SECTION - For Testing
+        ======================================== */
+        .demo-section {
+            padding: var(--spacing-3xl);
+            background: var(--white);
+            text-align: center;
+        }
+
+        .demo-section h2 {
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-lg);
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION - Simplified for Demo -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <span class="logo-text">BrightPath</span>
+                <span class="logo-chase">CH(Ai)SE™</span>
+            </div>
+            <div class="nav-demo">Navigation Menu Here</div>
+        </div>
+    </nav>
+
+    <!-- CONTACT & CTA SECTION - Dark Background Layout with Grid Pattern -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <!-- CONTACT - Header Introduction -->
+            <div class="contact-intro">
+                <div class="contact-header-container">
+                    <div class="contact-badge">
+                        <i class="fas fa-rocket"></i>
+                        <span>Get Started</span>
+                    </div>
+                    <div class="contact-title">Ready to Transform Your Projects?</div>
+                    <div class="contact-subtitle">Choose your path to CH(Ai)SE success</div>
+                </div>
+            </div>
+
+            <!-- CONTACT - CTA Options -->
+            <div class="cta-options">
+                <div class="cta-option" onclick="showContactForm('consultation')">
+                    <div class="cta-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Strategic Consultation</h3>
+                    <p>Let's discuss your current challenges and explore how CH(Ai)SE can transform your next project through proven methodology.</p>
+                    <div class="cta-button">Schedule Consultation</div>
+                </div>
+
+                <div class="cta-option" onclick="showContactForm('implementation')">
+                    <div class="cta-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Full Implementation</h3>
+                    <p>Experience the complete CH(Ai)SE methodology with rapid MVP development and organic charter evolution.</p>
+                    <div class="cta-button">Start Implementation</div>
+                </div>
+
+                <div class="cta-option" onclick="showContactForm('training')">
+                    <div class="cta-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Team Training</h3>
+                    <p>Empower your team with CH(Ai)SE methodology training and certification for internal capability building.</p>
+                    <div class="cta-button">Learn More</div>
+                </div>
+            </div>
+
+            <!-- CONTACT - Contact Form -->
+            <div class="contact-form-section">
+                <h3 class="form-title">Let's Start the Conversation</h3>
+                <form class="contact-form" id="chase-contact-form" onsubmit="handleFormSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@company.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" placeholder="Your company name">
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">Primary Interest</label>
+                            <select id="interest" name="interest">
+                                <option value="">Select your primary interest</option>
+                                <option value="consultation">Strategic Consultation</option>
+                                <option value="implementation">Full CH(Ai)SE Implementation</option>
+                                <option value="training">Team Training & Certification</option>
+                                <option value="other">Other / General Inquiry</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" required placeholder="Tell us about your current project challenges, timeline, and how we can help you achieve 920% ROI with CH(Ai)SE methodology..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="submit-button">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </div>
+
+                    <div class="form-message" id="form-message"></div>
+                </form>
+            </div>
+
+            <!-- CONTACT - Additional Info -->
+            <div class="contact-info">
+                <h3>What Happens Next?</h3>
+                <p>
+                    After you submit your information, our CH(Ai)SE methodology experts will review your project details and reach out to discuss how we can help transform your development approach.
+                </p>
+                <p>
+                    Every engagement begins with understanding your specific challenges and demonstrating how the CH(Ai)SE framework can turn scope evolution into your competitive advantage.
+                </p>
+                <div class="response-time">
+                    <i class="fas fa-clock"></i>
+                    We respond within 24 hours
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Completion Section -->
+    <section class="demo-section">
+        <h2>🎉 Complete BrightPath Website Sections</h2>
+        <p>All 8 sections have been created as individual HTML files, ready to be assembled into the complete website. Each section maintains consistent styling, responsive design, and interactive functionality.</p>
+        <br>
+        <p><strong>Sections Complete:</strong> Navigation, Hero, Problem Statement, Solution Introduction, Methodology Deep Dive, Proof & Validation, Services, Contact & CTA</p>
+    </section>
+
+    <script>
+        /* ========================================
+           SHARED FUNCTIONS - Used in: Navigation, Hero, All Sections
+        ======================================== */
+        
+        // Scroll to section function
+        function scrollToSection(sectionId, event) {
+            if (event) {
+                event.preventDefault();
+            }
+            
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+            return false;
+        }
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // ========================================
+        // CONTACT SECTION INTERACTIONS
+        // ========================================
+        
+        // Show contact form with pre-selected service
+        function showContactForm(serviceType) {
+            const interestSelect = document.getElementById('interest');
+            const messageTextarea = document.getElementById('message');
+            const nameInput = document.getElementById('name');
+            
+            // Pre-select the interest
+            if (interestSelect) {
+                interestSelect.value = serviceType;
+            }
+            
+            // Pre-fill message based on service type
+            if (messageTextarea) {
+                let messageTemplate = '';
+                switch(serviceType) {
+                    case 'consultation':
+                        messageTemplate = 'I\'m interested in a strategic consultation to discuss how CH(Ai)SE can help with my current project challenges. I\'d like to explore: ';
+                        break;
+                    case 'implementation':
+                        messageTemplate = 'I\'m ready for a full CH(Ai)SE implementation starting with rapid MVP development. My project details: ';
+                        break;
+                    case 'training':
+                        messageTemplate = 'I\'m interested in CH(Ai)SE team training and certification for my organization. Our team size and goals: ';
+                        break;
+                    default:
+                        messageTemplate = 'I\'m interested in learning more about CH(Ai)SE methodology. My current situation: ';
+                }
+                messageTextarea.value = messageTemplate;
+                
+                // Position cursor at the end
+                setTimeout(() => {
+                    messageTextarea.focus();
+                    messageTextarea.setSelectionRange(messageTemplate.length, messageTemplate.length);
+                }, 100);
+            }
+            
+            // Smooth scroll to form
+            document.querySelector('.contact-form-section').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+            
+            // Focus on name field if empty
+            setTimeout(() => {
+                if (nameInput && !nameInput.value) {
+                    nameInput.focus();
+                }
+            }, 800);
+        }
+
+        // Handle form submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const submitButton = form.querySelector('.submit-button');
+            const messageDiv = document.getElementById('form-message');
+            
+            // Get form data
+            const formData = {
+                name: form.name.value.trim(),
+                email: form.email.value.trim(),
+                company: form.company.value.trim(),
+                interest: form.interest.value,
+                message: form.message.value.trim()
+            };
+            
+            // Validate required fields
+            if (!formData.name || !formData.email || !formData.message) {
+                showMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            // Validate email
+            if (!isValidEmail(formData.email)) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Show loading state
+            submitButton.disabled = true;
+            submitButton.classList.add('loading');
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending Message...';
+            
+            // Simulate form submission
+            setTimeout(() => {
+                // Success response
+                showMessage('Thank you for your interest in CH(Ai)SE! We\'ll be in touch within 24 hours to discuss your project and how we can help achieve 920% ROI.', 'success');
+                form.reset();
+                
+                // Track conversion
+                console.log('CH(Ai)SE contact form submitted:', formData);
+                
+                // Reset button
+                submitButton.disabled = false;
+                submitButton.classList.remove('loading');
+                submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                
+            }, 2000);
+        }
+        
+        // Email validation
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        // Show form message
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('form-message');
+            messageDiv.textContent = message;
+            messageDiv.className = `form-message ${type}`;
+            messageDiv.style.display = 'block';
+            
+            // Auto-hide success messages after 10 seconds
+            if (type === 'success') {
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 10000);
+            }
+            
+            // Scroll to message
+            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // ========================================
+        // PAGE INITIALIZATION
+        // ========================================
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add scroll-triggered animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animated elements
+            document.querySelectorAll('.cta-option, .contact-form-section, .contact-info').forEach(element => {
+                element.style.animationPlayState = 'paused';
+                observer.observe(element);
+            });
+
+            // Add enhanced hover interactions for CTA options
+            document.querySelectorAll('.cta-option').forEach((option, index) => {
+                option.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                    this.style.boxShadow = '0 25px 60px rgba(255, 224, 102, 0.4)';
+                });
+                
+                option.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(-8px) scale(1)';
+                    this.style.boxShadow = '0 20px 50px rgba(255, 224, 102, 0.3)';
+                });
+
+                // Add click tracking
+                option.addEventListener('click', function() {
+                    const serviceName = this.querySelector('h3').textContent;
+                    console.log(`CTA option clicked: ${serviceName}`);
+                });
+            });
+
+            // Add form field enhancements
+            const formInputs = document.querySelectorAll('input, select, textarea');
+            formInputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'translateY(-2px)';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Add dynamic form validation
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+
+            if (nameInput) {
+                nameInput.addEventListener('blur', function() {
+                    if (this.value.trim().length < 2) {
+                        this.style.borderColor = '#FF6B6B';
+                    } else {
+                        this.style.borderColor = 'var(--accent-green)';
+                    }
+                });
+            }
+
+            if (emailInput) {
+                emailInput.addEventListener('blur', function() {
+                    if (isValidEmail(this.value.trim())) {
+                        this.style.borderColor = 'var(--accent-green)';
+                    } else if (this.value.trim()) {
+                        this.style.borderColor = '#FF6B6B';
+                    }
+                });
+            }
+
+            if (messageInput) {
+                messageInput.addEventListener('blur', function() {
+                    if (this.value.trim().length < 10) {
+                        this.style.borderColor = '#FF6B6B';
+                    } else {
+                        this.style.borderColor = 'var(--accent-green)';
+                    }
+                });
+            }
+
+            // Analytics and performance monitoring
+            if (window.performance && window.performance.mark) {
+                window.performance.mark('contact-section-loaded');
+                
+                setTimeout(() => {
+                    window.performance.mark('contact-section-interactive');
+                    window.performance.measure('contact-section-load-time', 'contact-section-loaded', 'contact-section-interactive');
+                }, 100);
+            }
+
+            console.log('🚀 Contact & CTA section loaded - ready for CH(Ai)SE conversions!');
+        });
+
+        // Export functions for potential integration
+        window.scrollToContact = function() {
+            document.getElementById('contact').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        };
+
+        // Service selection tracking
+        window.trackServiceInterest = function(serviceType) {
+            console.log(`Service interest tracked: ${serviceType}`);
+            // This could be expanded to integrate with analytics
+        };
+
+        // Form completion tracking
+        window.trackFormCompletion = function(formData) {
+            console.log('Form completion tracked:', formData);
+            // This could be expanded to integrate with conversion tracking
+        };
+    </script>
+</body>
+</html>
