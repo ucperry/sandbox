@@ -1,0 +1,10 @@
+Work Item ID,Work Type,Summary,Description,Epic Link,Parent,Story Points,Labels
+98,Story,IP-0.1 – Purpose & Governance Setup,"Planned: Define why Jira is the backbone for task execution and evidence logging. Actual: Governance charter created in Confluence. Why: Traceability across Three Pillar Lineage (M → B → P). Evidence: Appendix 0.1.",MHBR-71,,3,ip-step-0
+99,Sub-task,Create Governance Charter,"Document governance decisions in Confluence with PO/SM/stakeholder roles.",,98,2,appendix-0
+100,Story,IP-0.2 – Team Structure & CH(Ai)SE Routine,"Planned: Configure Jira roles (PO, SM, stakeholders). Actual: Roles defined in Confluence, automation partially applied. Why: Needed for CH(Ai)SE routines. Evidence: Appendix 0.2.",MHBR-71,,5,ip-step-0
+101,Sub-task,Capture Role Setup Evidence,"Upload Confluence screenshots of PO/SM/stakeholder role assignments.",,100,2,appendix-0
+102,Story,IP-0.3 – Work Item Seeding & Backlog Initialization,"Planned: CSV import system for Epics and Stories/Sub-tasks. Actual: Wave 1 import completed (Epics). Why: Ensures reproducibility. Evidence: Appendix 0.3.",MHBR-71,,5,ip-step-0
+103,Sub-task,Capture CSV Import Evidence,"Upload CSV templates and screenshots of successful Epic import to Confluence.",,102,3,appendix-0
+104,Story,IP-0.4 – Governance & Workflow Standards,"Planned: Enforce Jira workflow (To Do → In Progress → Evidence Attached → Human Review → Done). Actual: Workflow configured, automation deferred due to free-tier. Why: Prevent 'Done' without evidence. Evidence: Appendix 0.4.",MHBR-71,,5,ip-step-0
+105,Sub-task,Configure Workflow States,"Add Evidence Attached and Human Review states to Jira workflow.",,104,3,appendix-0
+106,Sub-task,Test Workflow with Sample Story,"Move test Story through workflow to validate transitions and evidence enforcement.",,104,2,appendix-0

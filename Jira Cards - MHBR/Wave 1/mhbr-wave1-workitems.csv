@@ -1,0 +1,16 @@
+Work Item ID,Work Type,Summary,Description,Epic Link,Parent
+1,Story,IP-0.1 – Define Purpose & Governance in Jira,"Define project purpose, governance approach, and CH(Ai)SE alignment inside Jira.",MHBR-71,
+2,Sub-task,Appendix C.0 – Team Charter Content,"Document team roles, responsibilities, and acceptance criteria.",,1
+
+3,Story,IP-0.2 – Configure Team Roles & CH(Ai)SE Routine,"Set up Jira roles, stakeholders, and CH(Ai)SE operational cadence.",MHBR-71,
+4,Sub-task,Appendix C.0 – Team Role Mapping,"Capture PO, SM, internal and external stakeholders in Confluence/charter.",,3
+
+5,Story,IP-0.3 – Implement Development Workflow,"Document branching strategy, deployment flow, and evidence standards.",MHBR-71,
+6,Sub-task,Appendix D.0 – Ops Runbook for Jira Usage,"Create runbook for traceability and audit steps inside Jira.",,5
+
+7,Story,IP-0.4 – Jira Workflow Setup,"Configure workflow: To Do → In Progress → Evidence Attached → Human Review → Done.",MHBR-71,
+8,Sub-task,Appendix A.0 – Jira Workflow Screenshots,"Capture workflow screenshots showing statuses and transitions.",,7
+
+9,Story,IP-0.5 – Evidence Attachment Enforcement,"Set up automation and Confluence/GitHub linkages for evidence enforcement.",MHBR-71,
+10,Sub-task,Appendix B.0 – CSV Import Template,"Provide CSV templates for backlog seeding, governance configs.",,9
+11,Sub-task,Appendix E.0 – Governance Change Log,"Log refinements to evidence/governance process.",,9
