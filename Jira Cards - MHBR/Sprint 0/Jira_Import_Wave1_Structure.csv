@@ -1,0 +1,9 @@
+Work Type,Summary,External Work ID,Description,StepRef,Reporter,Assignee,Priority,Labels,Status
+Epic,EP-0.1 Governance Alignment,EP01,"Establish project purpose and decision rights alignment.",Step 0.1,Perry Wolfe,AI Steward,Medium,FoundationsActivation,To Do
+Epic,EP-0.2 Team Structure & Roles,EP02,"Define RACI matrix and team charter.",Step 0.2,Perry Wolfe,AI Steward,Medium,FoundationsActivation,To Do
+Epic,EP-0.3 Work Item Seeding & Backlog Initialization,EP03,"Initialize Jira backlog structure with evidence fields.",Step 0.3,Perry Wolfe,AI Steward,Medium,FoundationsActivation,To Do
+Epic,EP-0.4 Governance & Workflow Standards,EP04,"Translate governance rules into Jira workflow.",Step 0.4,Perry Wolfe,AI Steward,Medium,FoundationsActivation,To Do
+Epic,EP-0.5 Sprint Execution Rhythm & Value Baseline,EP05,"Define cadence and baseline metrics.",Step 0.5,Perry Wolfe,AI Steward,Medium,FoundationsActivation,To Do
+Epic,EP-0.6 Evidence Pointers & VaultOps Readiness,EP06,"Create pointer schema and VaultOps Checklist.",Step 0.6,Perry Wolfe,AI Steward,Medium,FoundationsActivation,To Do
+Epic,EP-0.7 CDL Framework Activation,EP07,"Initialize CDL Index and Validation Queue.",Step 0.7,Perry Wolfe,AI Steward,Medium,FoundationsActivation,To Do
+Epic,EP-0.8 AI Ops Readiness Gate,EP08,"Conduct tooling audit and readiness validation.",Step 0.8,Perry Wolfe,Advisor,Medium,FoundationsActivation,To Do

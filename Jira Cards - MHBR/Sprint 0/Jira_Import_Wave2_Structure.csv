@@ -1,0 +1,7 @@
+Work Type,Summary,Work item Id,Parent Link,Parent,Description,StepRef,Story Points,Reporter,Assignee,Priority,Labels,RoleResponsible,Status
+Story,S-0.1.1 Document Project Purpose & Decision Rights,S011,HBRMVP-1,,"Define project purpose and link to business drivers.",Step 0.1,5,perry@wolfelegacies.com,perry@wolfelegacies.com,Medium,FoundationsActivation,PO,To Do
+Sub-task,T-0.1.1A Draft Purpose Statement,T011A,,S011,"Draft initial statement and submit for PO review.",Step 0.1,2,perry@wolfelegacies.com,perry@wolfelegacies.com,Medium,FoundationsActivation,PO,To Do
+Sub-task,T-0.1.1B Create Governance Charter Doc,T011B,,S011,"Generate VaultDoc and upload to Vault.",Step 0.1,3,perry@wolfelegacies.com,perry@wolfelegacies.com,Medium,FoundationsActivation,AI Evidence Steward,To Do
+Story,S-0.2.1 Define RACI Matrix and Access Model,S021,HBRMVP-2,,"Publish roles & responsibilities and access model.",Step 0.2,5,perry@wolfelegacies.com,perry@wolfelegacies.com,Medium,FoundationsActivation,Scrum Master,To Do
+Sub-task,T-0.2.1A List Roles and Responsibilities,T021A,,S021,"Compile team role matrix.",Step 0.2,2,perry@wolfelegacies.com,perry@wolfelegacies.com,Medium,FoundationsActivation,Scrum Master,To Do
+Sub-task,T-0.2.1B Upload Team Charter VaultDoc,T021B,,S021,"Store validated Team Charter in Vault & link CoreDoc.",Step 0.2,3,perry@wolfelegacies.com,perry@wolfelegacies.com,Medium,FoundationsActivation,Advisor,To Do

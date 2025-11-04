@@ -1,0 +1,159 @@
+{
+  "config.version" : "2.0",
+  "config.project.from.csv" : "false",
+  "config.encoding" : "UTF-8",
+  "config.file.id" : "c73157b1-9014-4c25-b818-2f434d601aea",
+  "config.email.suffix" : "@",
+  "config.file.name" : "Jira_Import_Wave2_Structure.csv",
+  "config.field.mappings" : {
+    "Status" : {
+      "jira.field" : "status",
+      "userChanged" : "true",
+      "manualMapping" : "true"
+    },
+    "Assignee" : {
+      "jira.field" : "assignee",
+      "userChanged" : "true",
+      "manualMapping" : "true"
+    },
+    "Description" : {
+      "jira.field" : "description",
+      "userChanged" : "true",
+      "manualMapping" : "true"
+    },
+    "Work Type" : {
+      "jira.field" : "issuetype",
+      "userChanged" : "true",
+      "manualMapping" : "true"
+    },
+    "Parent" : {
+      "jira.field" : "parent",
+      "userChanged" : "true",
+      "manualMapping" : "true"
+    },
+    "Priority" : {
+      "jira.field" : "priority",
+      "userChanged" : "true",
+      "manualMapping" : "true"
+    },
+    "Work item Id" : {
+      "jira.field" : "issue-id",
+      "userChanged" : "true",
+      "manualMapping" : "true"
+    },
+    "Reporter" : {
+      "jira.field" : "reporter",
+      "userChanged" : "true",
+      "manualMapping" : "true"
+    },
+    "Labels" : {
+      "jira.field" : "labels",
+      "userChanged" : "true",
+      "manualMapping" : "true"
+    },
+    "Parent Link" : {
+      "userChanged" : "true",
+      "manualMapping" : "true",
+      "existing.custom.field" : "10018"
+    },
+    "Summary" : {
+      "jira.field" : "summary",
+      "userChanged" : "true",
+      "manualMapping" : "true"
+    },
+    "RoleResponsible" : {
+      "userChanged" : "true",
+      "manualMapping" : "true",
+      "existing.custom.field" : "10256"
+    },
+    "StepRef" : {
+      "userChanged" : "true",
+      "manualMapping" : "true",
+      "existing.custom.field" : "10158"
+    },
+    "Story Points" : {
+      "userChanged" : "true",
+      "manualMapping" : "true",
+      "existing.custom.field" : "10042"
+    }
+  },
+  "config.csv.file.id" : null,
+  "config.value.mappings" : {
+    "Status" : {
+      "To Do" : "10010"
+    },
+    "Assignee" : {
+      "perry@wolfelegacies.com" : "perry@wolfelegacies.com"
+    },
+    "Description" : {
+      "Compile team role matrix." : "Compile team role matrix.",
+      "Draft initial statement and submit for PO review." : "Draft initial statement and submit for PO review.",
+      "Generate VaultDoc and upload to Vault." : "Generate VaultDoc and upload to Vault.",
+      "Define project purpose and link to business drivers." : "Define project purpose and link to business drivers.",
+      "Store validated Team Charter in Vault & link CoreDoc." : "Store validated Team Charter in Vault & link CoreDoc.",
+      "Publish roles & responsibilities and access model." : "Publish roles & responsibilities and access model."
+    },
+    "Work Type" : {
+      "Sub-task" : "10010",
+      "Story" : "10008"
+    },
+    "Parent" : {
+      "S021" : "S021",
+      "S011" : "S011"
+    },
+    "Priority" : {
+      "Medium" : "3"
+    },
+    "Work item Id" : {
+      "T021A" : "T021A",
+      "T011B" : "T011B",
+      "T021B" : "T021B",
+      "T011A" : "T011A",
+      "S021" : "S021",
+      "S011" : "S011"
+    },
+    "Reporter" : {
+      "perry@wolfelegacies.com" : "perry@wolfelegacies.com"
+    },
+    "Labels" : {
+      "FoundationsActivation" : "FoundationsActivation"
+    },
+    "Parent Link" : {
+      "HBRMVP-1" : "HBRMVP-1",
+      "HBRMVP-2" : "HBRMVP-2"
+    },
+    "Summary" : {
+      "T-0.2.1A List Roles and Responsibilities" : "T-0.2.1A List Roles and Responsibilities",
+      "T-0.1.1A Draft Purpose Statement" : "T-0.1.1A Draft Purpose Statement",
+      "T-0.1.1B Create Governance Charter Doc" : "T-0.1.1B Create Governance Charter Doc",
+      "T-0.2.1B Upload Team Charter VaultDoc" : "T-0.2.1B Upload Team Charter VaultDoc",
+      "S-0.1.1 Document Project Purpose & Decision Rights" : "S-0.1.1 Document Project Purpose & Decision Rights",
+      "S-0.2.1 Define RACI Matrix and Access Model" : "S-0.2.1 Define RACI Matrix and Access Model"
+    },
+    "RoleResponsible" : {
+      "Scrum Master" : "Scrum Master",
+      "AI Evidence Steward" : "AI Evidence Steward",
+      "Advisor" : "Advisor",
+      "PO" : "PO"
+    },
+    "StepRef" : {
+      "Step 0.2" : "Step 0.2",
+      "Step 0.1" : "Step 0.1"
+    },
+    "Story Points" : {
+      "2" : "2",
+      "3" : "3",
+      "5" : "5"
+    }
+  },
+  "config.delimiter" : ",",
+  "config.project" : {
+    "project.type" : "software",
+    "project.key" : "HBRMVP",
+    "project.description" : null,
+    "project.url" : null,
+    "project.name" : "HBR – CH(Ai)SE MVP",
+    "project.lead" : null
+  },
+  "config.date.format" : "dd/MMM/yy h:mm a"
+}
