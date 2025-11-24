@@ -1,0 +1,9 @@
+Work Item ID,Work Type,Summary,Description,Epic Link,Parent,Story Points,Labels
+201,Story,Implement Frontend Standards & Accessibility,"Apply responsive breakpoints (desktop ≥1200px, tablet ≥768px, mobile <768px). Enforce WCAG AA compliance (contrast, ARIA labels, semantic HTML).",MHBR-111,,5,ip-step-1
+202,Story,Build Design System & UI Components,"Create CSS design tokens for palette, typography, spacing. Scaffold reusable components (buttons, forms, cards, modals, navigation).",MHBR-111,,5,ip-step-1
+203,Story,Configure Deployment Pipeline,"Establish GitHub branch flow (feature/* → testing → staging → main). Implement CI/CD pipeline for Hostinger with 3 environments.",MHBR-111,,5,ip-step-1
+204,Story,Develop Core Pages & Navigation,"Scaffold Home, About, Services, Policies, Consultation, Portfolio, Contact, and Admin pages with sticky header, CTA buttons, and hamburger menu.",MHBR-111,,8,ip-step-1
+205,Sub-task,Scaffold Home & About Pages,"Build initial Home and About page shells.",,204,2,appendix-a
+206,Sub-task,Scaffold Services & Policies Pages,"Build initial Services and Policies page shells.",,204,2,appendix-a
+207,Sub-task,Scaffold Consultation & Portfolio Pages,"Build initial Consultation and Portfolio page shells.",,204,2,appendix-a
+208,Sub-task,Scaffold Contact & Admin Pages,"Build initial Contact and Admin page shells.",,204,2,appendix-a
